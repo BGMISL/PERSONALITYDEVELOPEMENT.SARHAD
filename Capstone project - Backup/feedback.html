@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="form">
+      <div class="field">
+        <label for="reply_to">*Your Mail</label>
+        <input type="text" name="reply_to" id="reply_to">
+      </div>
+    <div class="field">
+      <label for="subject">*Subject</label>
+      <input type="text" name="subject" id="subject">
+    </div>
+    <div class="field">
+      <label for="name">*Name</label>
+      <input type="text" name="name" id="name">
+    </div>
+    <div class="field">
+      <label for="message">*Message</label>
+      <input type="text" name="message" id="message">
+    </div>
+    <input type="submit" id="button" value="SUBMIT" >
+  </form>
+  
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <script type="text/javascript">
+    emailjs.init('evJAWnBmJp9J_Py_M')
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
