@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup/Login Form</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(images/loginback.jpg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+
+
+        
+        .wrapper {
+            width: 350px;
+            background-color: #fff;
+            padding: 30px;
+            background-image: url(images/wallpaperback1.jpg);
+            border-radius: 18px;
+            box-shadow: 0 2px 5px rgba(178, 0, 0, 0.1);
+            background-filter: blur(20px);
+        }
+
+        .headd {
+            text-align: center;
+            color: #b10000;
+            margin-bottom: 20px;
+          
+        
+        }
+
+        .form-inner {
+            padding: 20px;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #fe0606;
+            border-radius: 4px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-container button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-container button:hover {
+            background-color: #cf0000;
+            color: #ffffff;
+        }
+
+        .login-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+<section id="signup">
+    <div class="wrapper">
+
+       
+
+        <h1 class="headd">Sign Up</h1>
+        <div class="form-inner">
+            <form action="#" class="signup-form">
+                <div class="field">
+                    <input type="email" placeholder="Email Address" required id="E-mail" name="E-mail">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="Username" required id="username" name="username">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" required id="password" name="password">
+                </div>
+                <div class="field">
+                    <input type="button" value="Signup" id="Signup-btn">
+                </div>
+            </form>
+            <form action="#" class="login-form">
+                <div class="field">
+                    <input type="text" placeholder="Email Address" required id="login_email" name="login_email">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" required id="login_password" name="login_password">
+                </div>
+                <div class="field">
+                    <a href="https://mindbalance.net/?gad_source=5&gclid=EAIaIQobChMI5Jq3gLfHhwMVdyiDAx0-1jD8EAAYASAAEgLRY_D_BwE">
+                    <input type="button" value="Login" id="login-btn">
+                    </a>
+                </div>
+                <div class="signup-link">
+                    <a href="#" id="signup-link">Not a member? Signup now</a>
+                </div>
+            </form>
+        </div>
+        <div class="btn-container">
+            <button id="signup-button">Signup</button>
+            <button id="login-button">Login</button>
+        </div>
+    </div>
+</section>
+
+<!-- Firebase SDK Scripts using ES modules -->
+<!-- Firebase SDK Scripts using ES modules -->
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js';
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js';
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const firebaseConfig = {
+
+apiKey: "AIzaSyDmBM2cOLOh8WsyXL7qEKbZFaFLK9lA1cM",
+authDomain: "personality-dev.firebaseapp.com",
+databaseURL: "https://personality-dev-default-rtdb.firebaseio.com",
+projectId: "personality-dev",
+storageBucket: "personality-dev.appspot.com",
+messagingSenderId: "294712338810",
+appId: "1:294712338810:web:b29590eaae84aa7f580ec3",
+measurementId: "G-89T88PD31Y"
+
+
+    };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const signupButton = document.getElementById('signup-button');
+        const loginButton = document.getElementById('login-button');
+        const signupForm = document.querySelector('.signup-form');
+        const loginForm = document.querySelector('.login-form');
+        const signupLink = document.getElementById('signup-link');
+
+        signupButton.addEventListener('click', function() {
+            signupForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+
+        loginButton.addEventListener('click', function() {
+            signupForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        });
+
+        signupLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            signupForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+
+        // Handle Signup
+        document.getElementById("Signup-btn").addEventListener("click", function () {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("E-mail").value;
+            var password = document.getElementById("password").value;
+        
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('email', email);
+                    alert("Registration successful!");
+                    signupForm.style.display = 'none';
+                    loginForm.style.display = 'block';
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    console.log(errorMessage);
+                    alert(errorMessage);
+                });
+        });
+
+        // Handle Login
+        document.getElementById("login-btn").addEventListener("click", function () {
+            var email = document.getElementById("login_email").value;
+            var password = document.getElementById("login_password").value;
+        
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    alert(`${user.email} Login successful!`);
+                    window.location.href = "#Welcome";
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    console.log(errorMessage);
+                    alert(errorMessage);
+                });
+        });
+    });
+</script>

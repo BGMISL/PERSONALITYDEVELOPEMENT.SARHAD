@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang=""en>
+    <head>
+        <meta charset ="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width,intital-scale=1.0">
+        <title>Skill</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://kit.fontawesome.com/1d7fefcaed.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    
+        <div id ="Contact us">
+            <div class="container">
+
+                <nav class="navbar">  <img src="images/personal-development.png" class="logo">
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="skill.html" >Skills</a></li>
+                      <li><a href="health.html" >Health</a></li>
+                      <li><a href="portfolio.html">services</a></li>
+                      <li><a href="Contact us.html">Contact us</a></li>
+                      <li><a href="login.html" >login</a></li>
+                      <li><a href="feedback.html">feedback</a></li>
+                    </ul>
+                    
+                  </nav>
+
+                  <div class="space">
+                
+                  </div>
+
+
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact us</h1>
+                          <p> <i class="fa-solid fa-paper-plane"></i> <a href="mailto:slkingdomofficial@gmail.com">slkingdomofficial@gmail.com</a></p>
+                          <p> <i class="fa-solid fa-phone"></i> xxxx384961</p>
+                         <div class="social-icons">
+                            <!-- <a href="https://facebook.com/"><i class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com"><i class="fa-brands fa-twitter-square"></i></a> -->
+                            <a href="https://www.instagram.com/sonu_s_2807?igsh=MTh4NWJ0ZmJ4Z2F0eA=="><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="mailto:slkingdomofficial@gmail.com">&#x2709;</a>
+                            <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+                         </div>
+        
+                         <a href="images/Sahil_Bhagat_Resume.pdf" download class="btn btn2">Download Resume</a>
+                    </div>
+        
+        
+                     <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <form action="mailreceiveto:slkingdomofficial@gmail.com">
+                            <textarea name="Message"  rows="6" placeholder="Your Message"></textarea>
+                            </form>
+                           <form action="#">
+                            <a href=""></a>
+                            <button name="submit" class="btn btn2" onclick="myFunction()">Submit</button>
+                           </form>
+                            <script>
+                            function myFunction()
+                            {
+                                alert("thank you for contacting us 💗😄");
+                            }
+                            </script>
+                        </form>
+                     </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright <i class="fa-solid fa-copyright"></i> Personality Development Website</p>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+        
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+        </script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxsQxE3lJ66Map5E8kG03Dz9ms_NzbOTstD9x3uYhLFYsBIr-GmiuEHrEzQ3YtF4rvE9w/exec'
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+        </body>
+        </html>
+        
+     
+
+               
+
+                   

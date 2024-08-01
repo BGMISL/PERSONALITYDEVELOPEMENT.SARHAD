@@ -1,0 +1,38 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url(images/wallpaperflare.com_wallpaper\ \(2\).jpg);
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  /* Specific styles */
+  .author {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .quote {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .details{
+    color: gold;
+    text-size-adjust: bold;
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-size: large;
+    border: 2px solid black;
+    background-image: url(images/background.png.jpg);
+  }
