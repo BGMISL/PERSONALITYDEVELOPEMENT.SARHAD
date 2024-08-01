@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-image: url(images/wallpaperflare.com_wallpaper\ \(2\).jpg);
+    background-image: url("wallpaperflare.com_wallpaper\ \(2\).jpg");
   }
 
   .content {
@@ -34,5 +34,5 @@ body {
     text-transform: capitalize;
     font-size: large;
     border: 2px solid black;
-    background-image: url(images/background.png.jpg);
+    background-image: url(background.png.jpg);
   }
