@@ -12,7 +12,7 @@ body{
 #header{
     width: 100%;
     height: 100vh;
-    background-image: url(wallpaperflare.com_wallpaper\ \(2\).jpg);
+    background-image: url(images/wallpaperflare.com_wallpaper\ \(2\).jpg);
     background-size: cover;
     background-position: center;
 }
@@ -174,4 +174,23 @@ font-size: 14px;
 .services-list div:hover{
     background: #ff004f;
     transform: translate(-10px);
+}
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5em 0;
+    }
+
+    .navbar{
+        flex: 1 1 100%;
+    }
+}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    section {
+        padding: 0.5em;
+    }
 }

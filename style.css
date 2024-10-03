@@ -8,6 +8,8 @@ html{
     scroll-behavior: smooth;
 }
 body{
+    display: flex;
+    flex-direction: column;
     background: #080808;
     color: #ffff
 }
@@ -26,7 +28,8 @@ h5{
     background-repeat: no-repeat;
 }
 .container{
-    padding: 10px 10%;
+    flex-wrap: wrap;
+    padding: 10px 5%;
 
 }
 nav{
@@ -38,20 +41,32 @@ nav{
 .logo{
     width: 70px;
 }
+.sticky {
+    flex-wrap: wrap;
+    position: fixed;
+    top: 10;
+    width: 90%;
+    left: 50;
+    right: 50;
+  }
+
+ .sticky + .content {
+    padding-top: 60px;
+ }
 
 /* Your existing styles */
 
 .navbar {
     backdrop-filter: blur(5px);
     background-image: url(sucesses);
-    color: #fff;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 20px;
     /* Circular shadow and border */
-    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0.605); /* Inner shadow (adjust red value for color) */
+    box-shadow: 0 0 0 10px rgba(248, 31, 78, 0.605); /* Inner shadow (adjust red value for color) */
     border-radius: 50px; /* Circular border */
   }
   
@@ -72,7 +87,7 @@ nav{
   }
   
   nav ul li a:hover {
-    background-color: rgba(230, 2, 2, 0.834); /* Slightly darken background on hover (adjust red value for color) */
+    background-color: rgba(247, 6, 6, 0.979); /* Slightly darken background on hover (adjust red value for color) */
   }
 
   
@@ -85,7 +100,7 @@ nav ul li{
 }
 
 nav ul li a{
-    color: #fff;
+    color: #87c5ff;
     text-decoration: none;
     font-size: 18px;
     position: relative;
@@ -106,7 +121,9 @@ nav ul li a:hover::after{
 
 }
 .header-text{
-    margin-top: 20%;
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 10%;
     font-size:30px;
 }
 .header-text h1{
@@ -118,11 +135,12 @@ nav ul li a:hover::after{
 }
 /*----------about----------*/
 #about{
-    
+    display: flex;
+    flex-direction: column;
    width: 100%;
     height: 60vh;
     background-image: url(images/vector-JUL-2020-92.jpg);
-    min-height: 500px;
+    min-height: 1000px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -182,6 +200,7 @@ nav ul li a:hover::after{
 .tab-contents ul li{
     list-style: none;
     margin: 10px 0;
+
 }
 .tab-contents ul li span{
 color: #b54769;
@@ -198,9 +217,12 @@ font-size: 14px;
 /*--------services-------*/
 
 #services{
-    padding: 30px, 0;
+    display: flex;
+    flex-direction: column;
+    padding: 30px,0;
 }
 .services-list{
+    margin: 1rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 40px;
@@ -512,3 +534,46 @@ font-size: 14px;
  .copyright i{
     color: #ff004f;
  }
+
+ @media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5em 0;
+    }
+
+    .navbar,.navbarsticky,.sticky+.content{
+        flex: 1 1 100%;
+    }
+}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    section, .sticky,.sticky+.content{
+        padding: 0.5em;
+    }
+}
+
+/* @media (min-width: 768px){
+    body{
+        font-size: : 18px;
+    }
+} */
+ @media (max-width: 480px) {
+    #about {
+        flex-direction: column;
+    }
+     .about-col-1,.about-col-2,.tab-titles, .tab-contents.active-tab, .tab-contents {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #services {
+        flex-direction: column;
+    }
+    .services-list,.container{
+        flex: 1;
+    }
+}
